@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Control</title>
+  <link rel="stylesheet" href="./estilos/estilo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- CDN de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="user">
+        <!--<img src="https://i.pravatar.cc/100?img=12" alt="Avatar">-->
+        <img src="img/FotoSistema.png" alt="victor">
+        <div>
+          <span>Buenas Noches,</span>
+          <strong>Grupo 02</strong>
+        </div>
+      </div>
+      <button class="bell">🔔</button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div id="cajaLogo">
+        <img id="miLogo" src="./img/CyM.png" alt="empresa">
+      </div>
+      <h1>Panel de Control</h1>
+      <p>Gestiona tus clientes y facturación desde un solo lugar.</p>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick">
+      <div class="quick-header">
+        <h2>Accesos Rápidos</h2>
+        <a href="#">Ver todo</a> <!-- Separado para ver todas las facturas-->
+      </div>
+
+      <div class="card" onclick="action('clientes')">
+        <!--<div class="icon green">👤➕ <img src="./iconos/personas.png" width="15px" height="15px" alt=""></div>-->
+        <div class="icon green"><img src="./iconos/personas.png" width="50px" height="50px" alt=""></div>
+        <div id="reg-cliente">
+          <h3>Registro de Cliente</h3>
+          <p>Crea perfiles y gestiona contactos</p>
+        </div>
+        <span>›</span>
+      </div>
+
+      <div class="card" onclick="action('factura')">
+        <div class="icon green"><img src="./iconos/e-factura.png" width="50px" height="50px" alt=""></div>
+        <div>
+          <h3>Ceder Comprobante</h3>
+          <p>Genera comprobantes electrónicos</p>
+        </div>
+        <span>›</span>
+      </div>
+
+      <div class="card" onclick="action('vencidas')">
+        <div class="icon yellow"><img src="./iconos/rpte-facturas.png" width="50px" height="50px" alt=""></div>
+        <div>
+          <!-- <span class="badge"></span> -->
+          <h3>Registro de Pagos </h3>
+          <p>Revisiones y cobros pendientes</p>
+        </div>
+        <span>›</span>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="stat">
+        <span>👥 Clientes registrados</span>
+        <strong id="totalClientes">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>💰 Por cobrar</span>
+        <strong id="totalCobrar">S/ 0.00</strong>
+      </div>
+    </section>
+
+
+    <!-- Bottom Nav -->
+    <nav class="nav">
+      <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+      <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+      <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+      <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+    </nav>
+
+  </div>
+
+
+  <script type="module">
+    import { totalClientes, dineroPorCobrar } from "./js/dashboard.module.js";
+
+    document.getElementById("totalClientes").textContent = totalClientes();
+    document.getElementById("totalCobrar").textContent =
+      "S/ " + dineroPorCobrar().toFixed(2);
+  </script>
+
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
