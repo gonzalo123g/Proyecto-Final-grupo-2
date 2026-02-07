@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Pagos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../estilos/estilo.css">
+    <link rel="stylesheet" href="../estilos/estilo3.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Registro de Pagos</h1>
+        </div>
+
+        <!-- 1️⃣ SELECCIÓN COMPROBANTE -->
+        <div class="section">
+            <p class="section-label">COMPROBANTE</p>
+
+            <label>Seleccionar Comprobante</label>
+            <select id="comprobanteSelect">
+                <option value="">-- Seleccione comprobante --</option>
+            </select>
+
+            <!-- Temporal para pruebas -->
+
+       <!-- 3️⃣ DETALLE DE PAGOS -->
+        <div class="section">
+            <p class="section-label">DETALLE DE PAGOS</p>
+
+            <table id="tablaPagos">
+                <thead>
+                    <tr>
+                        <th>Fecha de Pago</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS inyecta los pagos aquí -->
+                </tbody>
+            </table>
+        </div>
+
+
+            <!-- 2️⃣ RESUMEN AUTOMÁTICO -->
+            <div class="section">
+                <p class="section-label">RESUMEN DEL COMPROBANTE</p>
+
+                <!-- ⚠️ ESTE DIV ES CLAVE -->
+                <div id="resumenPago" class="resumen-pago">
+                    Total: S/ 0.00 | Pagado: S/ 0.00 | Pendiente: S/ 0.00
+                </div>
+            </div>
+
+            <!-- --------------- -->
+            <label>Monto del Pago</label>
+            <input type="number" id="montoPago" min="1" placeholder="Monto a pagar">
+
+            <button class="btn" onclick="registrarPago()">
+                💰 Registrar Pago
+            </button>
+        </div>
+
+  
+        <!-- 4️⃣ ESTADO GENERAL 
+        <div class="section">
+            <p class="section-label">ESTADO DE COMPROBANTES</p>
+
+            <table id="tablaComprobantes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <th>Pagado</th>
+                        <th>Saldo</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <p class="footer-text">
+            🔴 Vencido | 🟡 Pendiente | 🟢 Pagado
+        </p>  -->
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../js/app_reg_pagos.js"></script>
+
+
+
+        <!-- Bottom Nav -->
+        <nav class="nav">
+            <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+            <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+            <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+            <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+        </nav>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes con Comprobantes Vencidos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../estilos/estilo.css">
+    <style>
+        .vencido {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🔴 Clientes con Comprobantes Vencidos</h1>
+    <p>Listado automático de facturas y boletas vencidas</p>
+
+    <table id="tablaVencidos">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>RUC / DNI</th>
+                <th>Tipo</th>
+                <th>Total</th>
+                <th>Vencimiento</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- JS inyecta datos -->
+        </tbody>
+    </table>
+
+</div>
+
+   <div class="app">
+        <!-- Bottom Nav -->
+        <nav class="nav">
+            <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+            <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+            <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+            <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+        </nav>
+
+    </div>
+
+
+<script src="../js/reporte_vencidos.js"></script>
+</body>
+</html>

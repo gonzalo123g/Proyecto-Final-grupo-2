@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Comprobantes</title>
+      <link rel="stylesheet" href="../estilos/estilo.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #2c3e50;
+            color: #fff;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+
+        .estado {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        .pagado { background: #2ecc71; }
+        .pendiente { background: #f1c40f; color: #000; }
+        .vencido { background: #e74c3c; }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📊 Reporte de Clientes y Comprobantes</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>DNI</th>
+                <th>Comprobante</th>
+                <th>Tipo</th>
+                <th>Total</th>
+                <th>Pagado</th>
+                <th>Saldo</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody id="tablaReporte"></tbody>
+    </table>
+
+    <div class="footer">
+        🔴 Vencido | 🟡 Pendiente | 🟢 Pagado
+    </div>
+</div>
+
+
+<div class="app">
+    <!-- Bottom Nav -->
+    <nav class="nav">
+        <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+        <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+        <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+        <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+    </nav>
+</div>
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    renderReporte();
+});
+
+function renderReporte() {
+    const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+    const comprobantes = JSON.parse(localStorage.getItem("comprobantes")) || [];
+    const pagos = JSON.parse(localStorage.getItem("pagos")) || [];
+
+    const tbody = document.getElementById("tablaReporte");
+    tbody.innerHTML = "";
+
+    comprobantes.forEach(c => {
+        const cliente = clientes.find(cl => cl.dni === c.dniCliente);
+
+        const totalPagado = pagos
+            .filter(p => p.idComprobante === c.id)
+            .reduce((s, p) => s + p.monto, 0);
+
+        const saldo = c.total - totalPagado;
+
+        let estadoTexto = "PENDIENTE";
+        let estadoClase = "pendiente";
+
+        if (totalPagado >= c.total) {
+            estadoTexto = "PAGADO";
+            estadoClase = "pagado";
+        } else if (estaVencido(c)) {
+            estadoTexto = "VENCIDO";
+            estadoClase = "vencido";
+        }
+
+        tbody.innerHTML += `
+            <tr>
+                <td>${cliente ? cliente.nombres + " " + cliente.apellidos : "No definido"}</td>
+                <td>${cliente?.dni || "-"}</td>
+                <td>${c.id}</td>
+                <td>${c.tipo}</td>
+                <td>S/ ${c.total.toFixed(2)}</td>
+                <td>S/ ${totalPagado.toFixed(2)}</td>
+                <td>S/ ${saldo.toFixed(2)}</td>
+                <td>
+                    <span class="estado ${estadoClase}">
+                        ${estadoTexto}
+                    </span>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+function estaVencido(c) {
+    return c.estado !== "PAGADO" && new Date(c.fechaVencimiento) < new Date();
+}
+</script>
+
+
+
+</body>
+</html>

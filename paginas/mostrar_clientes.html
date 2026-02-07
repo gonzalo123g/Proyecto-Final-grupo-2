@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/estilo_tabla.css">
+    <link rel="stylesheet" href="../estilos/estilo3.css">
+    <link rel="stylesheet" href="../estilos/estilo.css">
+
+    <title>Listado de Clientes</title>
+</head>
+
+<body>
+
+    <hr>
+
+    <h2>📋 Clientes Registrados</h2>
+
+<div id="editSection" style="display:none; margin-bottom:16px;">
+        <h3>✏️ Editar Cliente</h3>
+        <form id="frmEditar">
+            <label>Nombres</label>
+            <input id="edit_nombres" type="text" required>
+
+            <label>Apellidos</label>
+            <input id="edit_apellidos" type="text" required>
+
+            <label>DNI</label>
+            <input id="edit_dni" type="text" required maxlength="8" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">>
+
+            <label>Correo</label>
+            <input id="edit_Correo" type="email">
+
+            <label>Teléfono</label>
+            <input id="edit_num_cel" type="text" maxlength="9" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">>
+
+            <label>Dirección</label>
+            <input id="edit_direccion" type="text">
+
+            <div style="margin-top:10px; display:flex; gap:8px;">
+                <button class="btn" type="submit">Actualizar</button>
+                <button class="btn" type="button" id="btnCancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <table id="tablaClientes">
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JS insertará los clientes aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="app">
+        <!-- Bottom Nav -->
+        <nav class="nav">
+            <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+            <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+            <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+            <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+        </nav>
+
+    </div>
+
+
+    <script src="../js/appmostrar_clientes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

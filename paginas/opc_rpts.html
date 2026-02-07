@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REPORTE DE INFORMACION</title>
+  <link rel="stylesheet" href="../estilos/estilo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- CDN de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div id="cajaLogo">
+        <img id="miLogo" src="../img/CyM.png" alt="empresa">
+      </div>
+      <h1>REPORTE DE INFORMACIONR REGISTRADA</h1>
+      <p>Mostrar datos registrados en el Sistema</p>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick">
+      <div class="card animate delay-1" onclick="activacion('rpt_clientes')">
+        <div class="icon green"><img src="../iconos/persona.png" width="50px" height="50px" alt=""></div>
+        <div>
+          <h3>Reporte de Cliente</h3>
+          <p>Mostrar información de clientes registrados</p>
+        </div>
+        <span>›</span>
+      </div>
+
+      <div class="card animate delay-2" onclick="activacion('rpt_factura')">
+        <div class="icon green"><img src="../iconos/e-factura.png" width="50px" height="50px" alt=""></div>
+        <div>
+          <h3>Reporte de Comprobante</h3>
+          <p>Mostrar comprobantes electrónicos registrados</p>
+        </div>
+        <span>›</span>
+      </div>
+
+      <div class="card animate delay-3" onclick="activacion('rpt_fac_vencidas')">
+        <div class="icon yellow"><img src="../iconos/sospechar.png" width="50px" height="50px" alt=""></div>
+        <div>
+          <h3>Reporte de Facturas Vencidas</h3>
+          <p>Mostrar facturas vencidas registradas</p>
+        </div>
+        <span>›</span>
+      </div>
+    </section>
+
+
+    <!-- Bottom Nav -->
+    <nav class="nav">
+      <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+      <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+      <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+      <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+    </nav>
+
+  </div>
+
+  <script src="../js/app_opc_rpte.js"></script>
+</body>
+
+</html>

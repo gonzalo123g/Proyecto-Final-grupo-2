@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="../estilos/estilo.css">
+    <link rel="stylesheet" href="../estilos/estilo3.css">
+    <link rel="stylesheet" href="./estilos/estiloCliente.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Registro de Cliente</h1>
+
+        <form id="frmClientes">
+
+            <!-- Información Personal -->
+            <div class="section">
+                <div class="section-title">👤 Información Personal</div>
+
+                <label>Nombres</label>
+                <input id="nombres" type="text" placeholder="Ej. Juan Pablo">
+
+                <label>Apellidos</label>
+                <input id="apellidos" type="text" placeholder="Ej. Pérez García">
+
+                <label>DNI</label>
+                <input id="dni" type="text" placeholder="Ingrese DNI (8 digitos)" maxlength="8" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">   
+            </div>
+
+            <!-- Datos de Facturación -->
+            <div class="section">
+                <div class="section-title">🧾 Datos de Facturación</div>
+
+                <label>RUC (Opcional)</label>
+                <input id="ruc" type="text" placeholder="11 dígitos" maxlength="11" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                <label>Dirección</label>
+                <input id="direccion" type="text" placeholder="Calle, Número, Distrito">
+            </div>
+
+            <!-- Contacto -->
+            <div class="section">
+                <div class="section-title">📞 Contacto</div>
+
+                <label>Correo Electrónico</label>
+                <input id="Correo" type="email" placeholder="usuario@empresa.com">
+
+                <label>Teléfono</label>
+                <div class="phone-group">
+                    <input id="cod_ciudad" type="text" value="+51" disabled>
+                    <input id="num_cel" type="text" placeholder="999 999 999" maxlength="9" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                </div>
+            </div>
+
+            <button class="btn" type="submit">💾 Guardar Cliente</button>
+
+            <p class="footer-text">
+                Al guardar, el cliente será habilitado para emisión de facturas y boletas electrónicas.
+            </p>
+
+        </form>
+
+
+        <!-- Bottom Nav -->
+        <nav class="nav">
+            <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+            <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+            <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+            <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+        </nav>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/appreg_cliente.js"></script>
+</body>
+
+</html>

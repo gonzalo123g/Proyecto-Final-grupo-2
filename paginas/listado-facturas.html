@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla y Estadísticas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./estilos/estilo3.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Registro y Estadísticas</h1>
+
+        <!-- FORMULARIO -->
+        <div class="form">
+            <input type="text" id="concepto" placeholder="Concepto">
+            <input type="number" id="monto" placeholder="Monto">
+            <button id="btnAgregar">Agregar</button>
+        </div>
+
+        <!-- TABLA -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Concepto</th>
+                    <th>Monto ($)</th>
+                </tr>
+            </thead>
+            <tbody id="tablaDatos"></tbody>
+        </table>
+
+        <!-- TOTAL -->
+        <div class="total">
+            Total: $ <span id="total">0.00</span>
+        </div>
+
+        <!-- GRAFICO -->
+        <canvas id="grafico"></canvas>
+
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="nav">
+        <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+        <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+        <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+        <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+    </nav>
+
+
+    <!-- JS -->
+    <script src="app.js"></script>
+</body>
+
+</html>

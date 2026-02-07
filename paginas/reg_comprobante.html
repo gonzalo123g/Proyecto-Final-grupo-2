@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Comprobante</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../estilos/estilo.css">
+    <link rel="stylesheet" href="../estilos/estilo3.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Registrar Comprobante</h1>
+    </div>
+
+    <!-- 1️⃣ CLIENTE -->
+    <div class="section">
+        <p class="section-label">CLIENTE</p>
+
+        <label>Seleccionar Cliente</label>
+        <select id="clienteSelect">
+            <option value="">-- Seleccione un cliente --</option>
+        </select>
+    </div>
+
+    <!-- 2️⃣ COMPROBANTE -->
+    <div class="section">
+        <p class="section-label">DATOS DEL COMPROBANTE</p>
+
+        <label>Tipo de Comprobante</label>
+        <select id="tipoComprobante">
+            <option value="BOLETA">Boleta</option>
+            <option value="FACTURA">Factura</option>
+        </select>
+
+        <div class="row">
+            <div>
+                <label>Fecha Emisión</label>
+                <input type="date" id="fechaEmision">
+            </div>
+            <div>
+                <label>Fecha Vencimiento</label>
+                <input type="date" id="fechaVencimiento">
+            </div>
+        </div>
+
+        <label>Monto Total</label>
+        <input type="number" id="totalComprobante" min="1" placeholder="Monto total">
+
+        <button id="btnGuardarComprobante" class="btn" type="button">
+            🧾 Guardar Comprobante
+        </button>
+    </div>
+
+    <p class="footer-text">
+        El comprobante quedará en estado <strong>PENDIENTE</strong>.
+    </p>
+
+    <script src="../js/app_reg_comprobante.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<!-- Bottom Nav -->
+    <nav class="nav">
+      <button class="active"><a href="../index.html"><span>🏠 Inicio</span></a></button>
+      <button class="active"><a href="../paginas/reg_cliente.html"><span>👤 Clientes</span></a></button>
+      <button class="active"><a href="../paginas/reg_comprobante.html">🧾<span>Comprobantes</span></a></button>
+      <button class="active"><a href="../paginas/opc_rpts.html">📊<span>Reportes</span></a></button>
+    </nav>
+</div>
+
+</body>
+</html>

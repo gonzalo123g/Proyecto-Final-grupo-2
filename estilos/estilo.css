@@ -1,0 +1,234 @@
+:root {
+  --green: #4e7f65;
+  --green-dark: #3c6450;
+  --yellow: #f1c24b;
+  --bg: #f6f7f5;
+  --card: #ffffff;
+  --text: #1e1e1e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.app {
+  max-width: 420px;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.user {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.user img {
+  /*width: 48px;*/
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.user span {
+  font-size: 13px;
+  color: gray;
+}
+
+.bell {
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  /*padding: 10px;*/
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* Hero */
+.hero {
+  margin: 0 20px;
+  padding: 30px;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  color: white;
+  border-radius: 18px;
+}
+
+.hero #cajaLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero #cajaLogo #miLogo {
+  width: 90px;
+  height: 50px;;
+   padding-bottom: 15px;
+}
+
+.hero h1 {
+  margin: 0;
+}
+
+.hero p {
+  opacity: 0.9;
+}
+
+/* Quick */
+.quick {
+  padding: 20px;
+}
+
+.quick-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-header a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card span:last-child {
+  margin-left: auto;
+  font-size: 20px;
+  color: #999;
+}
+
+.icon {
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.icon.green {
+  background: #e3efe9;
+  color: var(--green);
+}
+
+.icon.yellow {
+  background: #fff3d6;
+  color: var(--yellow);
+}
+
+.warning {
+  border-left: 5px solid var(--yellow);
+}
+
+.badge {
+  background: var(--yellow);
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  gap: 14px;
+  padding: 0 20px;
+}
+
+.stat {
+  background: white;
+  flex: 1;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.stat span {
+  font-size: 12px;
+  color: gray;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 20px;
+  color: var(--green-dark);
+}
+
+/* Nav */
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  
+}
+
+.nav button {
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+
+}
+
+.nav .active {
+  color: var(--green);
+  font-weight: 600;
+  
+}
+
+/* Animaciones - tarjetas y efectos */
+.card {
+   background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+  /* 👇 Animación */
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.card:hover {
+  transform: translateY(-8px); /* 🔼 sube la tarjeta */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card:active {
+  transform: translateY(-4px); /* efecto al hacer click */
+}
